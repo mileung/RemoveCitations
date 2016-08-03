@@ -3,7 +3,32 @@
   <head>
     <title>Remove Citations</title>
     <script src="popup.js"></script>
+    <style>
+      #button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: : 100%;
+        border: 1px black solid;
+        border-radius: 3px;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 13px;
+      }
+
+      #button:hover {
+        background: #f2f2f2;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
+    <div id="button">
+      <p id="action">
+        Disable
+      </p>
+    </div>
   </body>
+  <script src="popup.js"></script>
 </html>
