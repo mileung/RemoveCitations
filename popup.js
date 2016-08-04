@@ -12,14 +12,17 @@ document.addEventListener('DOMContentLoaded', function() {
 function toggleAction() {
   if (action.innerHTML.trim() === 'Disable') {
     action.innerHTML = 'Enable';
-    chrome.storage.sync.set({'action': 'Enable'});
+    chrome.storage.sync.set({'action': 'Enable'}, reload);
   } else {
     action.innerHTML = 'Disable';
-    document.body.innerHTML = document.body.innerHTML.replace(/<sup.*<\/sup>/g, '');
-    chrome.storage.sync.set({'action': 'Disable'});
+    chrome.storage.sync.set({'action': 'Disable'}, reload);
   }
 }
 
 function log(content) {
   chrome.extension.getBackgroundPage().console.log(content);
+}
+
+function reload() {
+  chrome.tabs.reload();
 }
