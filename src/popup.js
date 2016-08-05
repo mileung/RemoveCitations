@@ -2,11 +2,14 @@ document.addEventListener('DOMContentLoaded', function() {
   // var button = document.getElementById('button');
   var action = document.getElementById('action');
   chrome.storage.sync.get('action', function(data) {
-    if (data.action) {
-      action.innerHTML = data.action;
+    switch (data.action) {
+      case 'Disable':
+        removeCitation();
+      case 'Enable':
+        action.innerHTML = data.action;
     }
+    document.getElementById('button').addEventListener('click', toggleAction);
   });
-  document.getElementById('button').addEventListener('click', toggleAction);
 });
 
 function toggleAction() {
@@ -19,10 +22,10 @@ function toggleAction() {
   }
 }
 
-function log(content) {
-  chrome.extension.getBackgroundPage().console.log(content);
-}
-
 function reload() {
   chrome.tabs.reload();
+}
+
+function removeCitation() {
+  document.body.innerHTML = document.body.innerHTML.replace(/\[\d{1,}\]|<sup.+\[.+citation needed.+\]<\/sup>/g, '');
 }
