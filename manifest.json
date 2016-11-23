@@ -3,7 +3,7 @@
 
   "name": "Remove Citations",
   "description": "Remove the citations found on Wikipedia pages",
-  "version": "0.1",
+  "version": "1.1",
   "background": {
     "scripts": ["src/background.js"]
   },

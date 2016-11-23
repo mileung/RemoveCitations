@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // var button = document.getElementById('button');
   var action = document.getElementById('action');
   chrome.storage.sync.get('action', function(data) {
     switch (data.action) {
