@@ -1,12 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   var action = document.getElementById('action');
   chrome.storage.sync.get('action', function(data) {
-    switch (data.action) {
-      case 'Disable':
-        removeCitation();
-      case 'Enable':
-        action.innerHTML = data.action;
-    }
     document.getElementById('button').addEventListener('click', toggleAction);
   });
 });
@@ -23,8 +17,4 @@ function toggleAction() {
 
 function reload() {
   chrome.tabs.reload();
-}
-
-function removeCitation() {
-  document.body.innerHTML = document.body.innerHTML.replace(/\[\d{1,}\]|<sup.+\[.+citation needed.+\]<\/sup>/g, '');
 }
